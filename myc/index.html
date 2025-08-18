@@ -204,29 +204,40 @@
             <form id="register-form" class="form-container">
 
                 <div id="section_1">
-                    <input type="text" name="username" id="username" class="form-control" required />
-                    <div class="d-flex flex-column mb-1 mt-2 text-danger text-start small fw-normal">
-                        <div id="username-length-error" class="d-none"></div>
-                        <div id="username-alphanumeric-or-numeric-only-error" class="d-none"></div>
+                    <div class="form-div form-group tooltip-username">
+                        <div class="form-div form-group form-line-ignore">
+                            <input type="text" name="Username" class="form-control" id="Username" required=""
+                                aria-required="true" />
+                            <div class="error-div validation-div">
+                                <span id="Username-error" class="error error-msg d-none"></span>
+                                <span id="UsernameAlphaNumeric-error" class="error error-msg d-none"></span>
+                            </div>
+                        </div>
+                        <div class="form-div form-group tooltip-text form-line-ignore">
+                            <input type="password" name="Password" class="form-control" id="Password" required=""
+                                aria-required="true" />
+                            <div class="error-div validation-div">
+                                <span id="Password-error" class="error error-msg d-none"></span>
+                            </div>
+                        </div>
+                        <div class="form-div form-group tooltip-text form-line-ignore">
+                            <input type="password" name="ConfirmPassword" class="form-control" id="ConfirmPassword"
+                                required="" aria-required="true" />
+                            <div class="error-div validation-div">
+                                <span id="ConfirmPassword-error" class="error error-msg d-none"></span>
+                            </div>
+                        </div>
+                        <div class="form-div form-group row">
+                            <input type="number" name="MobileNumber" class="form-control contact" id="MobileNumber"
+                                required="" aria-required="true" />
+                            <div class="error-div validation-div">
+                                <span id="MobileNumber-error" class="error error-msg d-none"></span>
+                            </div>
+                            <div class="error-div validation-div">
+                                <span id="Generic-error" class="error error-msg d-none"></span>
+                            </div>
+                        </div>
                     </div>
-
-                    <input type="password" name="password" id="password" class="form-control" required />
-                    <div class="d-flex flex-column mb-1 mt-2 text-danger text-start small fw-normal">
-                        <div id="password-error" class="d-none"></div>
-                    </div>
-
-                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
-                        required />
-                    <div class="d-flex flex-column mb-1 mt-2 text-danger text-start small fw-normal">
-                        <div id="confirmpassword-error" class="d-none"></div>
-                    </div>
-
-                    <input type="text" name="mobile_number" id="mobile_number" class="form-control" required />
-                    <div class="d-flex flex-column mb-1 mt-2 text-danger text-start small fw-normal">
-                        <div id="mobilenumber-error" class="d-none"></div>
-                    </div>
-                    <div id="generic-message"
-                        class="d-flex flex-column mb-1 mt-2 text-start small fw-normal text-danger d-none"></div>
                 </div>
                 <button type="submit" id="register" class="btn-claim">
                     <img width="100%" class="btn-claim-img" src="images/cta-btn-v3-zh.png">
