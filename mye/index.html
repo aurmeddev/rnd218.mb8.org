@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="csrf-token" content="Xquig02RHa92RGwRU0DS2KQHE3DNAbp0mCRS5uHX" />
+
+  <title>MB8 - PROMOTION</title>
+
+  <link rel="icon" href="MB8-favicon.ico" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Poppins" />
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/trajan-pro" />
+
+  <script src="js/jquery-3.6.4.min.js"></script>
+  <script src="js/mobile-detect.min.js"></script>
+
+  <link rel="stylesheet" href="css/all.min.css" />
+  <script src="js/all.min.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap-5.2.3.min.css" />
+  <script src="js/bootstrap-5.2.3.min.js"></script>
+
+  <script src="js/sweetalert2.all.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/plugins.js"></script>
+  <!-- <script src="js/api.js"></script> -->
+
+  <script src="js/func.js"></script>
+
+  <style>
+    :root {
+      --desktop-top: url(../images/top-bg_1.png);
+      --desktop-mid: url(../images/mid-bg_1.png);
+      --desktop-btm: url(../images/btm-bg_1.png);
+      --phone-frame: url(../images/phone.png);
+      --mobile-top: url(../images/top-bg.png);
+      --mobile-btm: url(../images/btm-bg.png);
+      --mobile-mid: url(../images/mid-bg.png);
+    }
+  </style>
+  <script>
+    const lang = "en";
+    const country = "my";
+    const version = "v3";
+    const site_name = "MB8";
+  </script>
+
+  <link rel="stylesheet" href="css/custom.min.css" />
+  <link href="css/custom.css" rel="stylesheet" />
+  <script src="js/custom.min.js"></script>
+</head>
+
+<body>
+
+  <div class="contact-us">
+    <div id="top-banner" class="redirect-banner-container">
+      <div class="top-banner-container">
+        <div class="bp-icon">
+          <div class="icon-img contact-us-icon-color">
+            <img src="images/MB8-logo.png" />
+          </div>
+        </div>
+        <div class="col-4 redirect-text">
+          <p class="m-0">Looking for our homepage?</p>
+        </div>
+        <div class="col-3 p-0 m-auto d-flex justify-content-center">
+          <div id="redirect"
+            class="d-flex flex-nowrap align-items-center justify-content-center text-center ml-auto redirect-button redirect-button-color">
+            <div class="redirect-banner redirect-button-text-color">
+              ENTER MB8
+            </div>
+            <input type="hidden" name="site_name" value="MB8" />
+            <input type="hidden" name="site_prefix" value="I22" />
+          </div>
+        </div>
+        <div class="col-2 ml-2 p-0">
+          <span id="close-button" class="redirect-banner-close">X</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-side-panel d-flex flex-nowrap">
+      <div id="contact-us-close-button" class="contact-us-close-button">
+        X
+      </div>
+      <div class="d-flex flex-nowrap align-items-center">
+        <p class="">NEED HELP?</p>
+        <div class="content-container">
+          <div class="contact-content">
+            <a id="live-chat"><img class="contact-us-icon" src="images/livechat.png" alt="Live Chat Icon"
+                title="Live Chat" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const redirectButton = document.getElementById("redirect");
+      const closeButton = document.getElementById("close-button");
+      const topBanner = document.getElementById("top-banner");
+      const liveChat = document.getElementById("live-chat");
+      const contactUsCloseButton = document.getElementById(
+        "contact-us-close-button"
+      );
+
+      var contactPanel = document.querySelector(".contact-side-panel");
+      var contactContainer = document.querySelector(".content-container");
+      var contactContents = document.querySelectorAll(".contact-content");
+      var bodyInner = document.querySelector(".body-inner");
+
+      var country = $('[name="country"]').val();
+      var lang = $('[name="lang"]').val();
+      var siteName = $('[name="site_name"]').val();
+      var sitePrefix = $('[name="site_prefix"]').val();
+
+      handleResize();
+
+      redirectButton.addEventListener("click", function (e) {
+        var queryString = window.location.search;
+        var platform = "";
+        var md = new MobileDetect(window.navigator.userAgent);
+
+        if (md.mobile()) {
+          platform = "M";
+        } else {
+          platform = "D";
+        }
+
+        function getParameterByName(param) {
+          const url = new URL(window.location);
+          const params = new URLSearchParams(url.search); // Extract search parameters
+          // Accessing specific parameter values
+          return params.get(param).toUpperCase();
+        }
+
+        const redirectURL = `https://mb8mys.net/${getParameterByName(
+          "lang"
+        )}`;
+
+        window.location.href = redirectURL;
+
+
+      });
+
+      closeButton.addEventListener("click", function () {
+        topBanner.style.display = "none";
+        bodyInner.style.marginTop = "0";
+      });
+
+      contactUsCloseButton.addEventListener("click", function () {
+        contactPanel.style.setProperty("display", "none", "important");
+      });
+
+      liveChat.addEventListener("click", function () {
+        idStack = {
+          W33: {
+            MY: {
+              EN: 73,
+              ZH: 73,
+            },
+            SG: {
+              EN: 74,
+              ZH: 74,
+            },
+          }
+        };
+
+        var groupId =
+          idStack[sitePrefix][country.toUpperCase()][lang.toUpperCase()];
+        var liveChatURL =
+          "https://secure.livechatinc.com/licence/10515072/v2/open_chat.cgi?group=" +
+          groupId;
+
+        window.location.href = liveChatURL;
+      });
+      function handleResize() {
+        var imageCount = contactContents.length;
+        var img = contactContents[0].querySelector("img");
+        var imageComputedStyle = window.getComputedStyle(img);
+        var imageHeight = parseFloat(imageComputedStyle.width) + 8;
+        var totalHeight = imageCount * imageHeight;
+        contactPanel.style.height = totalHeight + "px";
+        bodyInner.style.marginTop = topBanner.clientHeight - 1 + "px";
+      }
+      window.addEventListener("resize", handleResize);
+    });
+  </script>
+
+  <div class="body-inner position-relative">
+    <div class="container text-center m-0 claim-form" style="display: none" id="form">
+      <p class="text-center m-0 text03">ENTER YOUR DETAILS TO CLAIM YOUR</p>
+      <p class="text-center m-0 text04">218 FREE<br /><span>SPINS</span></p>
+      <p class="text-center m-0" style="font-family:Times New Roman, Times, serif;  
+      font-weight: 700;
+      color: #4d1b03;
+      line-height: 1.2;
+      margin-bottom: 4% !important;
+      font-size: 0.9rem;">Min Deposit RM50</p>
+      <form id="register-form" class="form-container">
+        <div id="section_1">
+          <input type="text" name="username" id="username" class="form-control" required />
+          <div class="d-flex flex-column mb-1 mt-2 text-danger text-start small fw-normal">
+            <div id="username-length-error" class="d-none"></div>
+            <div id="username-alphanumeric-or-numeric-only-error" class="d-none"></div>
+          </div>
+
+          <input type="password" name="password" id="password" class="form-control" required />
+          <div class="d-flex flex-column mb-1 mt-2 text-danger text-start small fw-normal">
+            <div id="password-error" class="d-none"></div>
+          </div>
+
+          <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
+            required />
+          <div class="d-flex flex-column mb-1 mt-2 text-danger text-start small fw-normal">
+            <div id="confirmpassword-error" class="d-none"></div>
+          </div>
+
+          <input type="text" name="mobile_number" id="mobile_number" class="form-control" required />
+          <div class="d-flex flex-column mb-1 mt-2 text-danger text-start small fw-normal">
+            <div id="mobilenumber-error" class="d-none"></div>
+          </div>
+          <div id="generic-message" class="d-flex flex-column mb-1 mt-2 text-start small fw-normal text-danger d-none">
+          </div>
+        </div>
+
+        <button type="submit" id="register" class="btn-claim">
+          <img width="100%" class="btn-claim-img" src="images/cta-btn-v3-en.png" />
+        </button>
+      </form>
+    </div>
+
+    <section id="home" class="position-relative top-bg">
+      <img class="position-absolute floating135 gem-1" src="images/gem-1.png" style="display: none" />
+      <img class="position-absolute floating135 gem-2" src="images/gem-2.png" style="display: none" />
+      <img class="position-absolute floating225 gem-3" src="images/gem-3.png" style="display: none" />
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <img class="gop-logo" src="images/gates-of-olympus-logo.png" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="m-0 text01">POWERED BY</p>
+          </div>
+        </div>
+        <div class="row logo-row justify-content-center d-flex align-items-center">
+          <div class="col-3 p-0 position-relative logo-col logo-col1">
+            <img class="bp-logo" src="images/MB8-logo.png" />
+          </div>
+          <div class="col-1 p-0 text-center">
+            <p class="m-0 text02">X</p>
+          </div>
+          <div class="col-3 p-0 position-relative logo-col logo-col2">
+            <img class="pp-logo" src="images/pp-logo.png" />
+          </div>
+        </div>
+        <div class="row content desktop">
+          <div class="col-6 position-relative">
+            <img class="position-absolute text-apng" src="images/v3-fs-en.png" style="display: none" />
+          </div>
+          <div class="col-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="position-relative mid-bg" style="display: none">
+      <img class="position-absolute specialcase gem-4 desktop" src="images/gem-4.png" />
+      <img class="position-absolute floating135 gem-5 desktop" src="images/gem-5.png" />
+      <div class="container text-center">
+        <div class="text-center text01">
+          DEPOSIT A MINIMUM OF RM50 AND GET
+        </div>
+        <div class="text-center m-0 text02">218 FREE SPINS</div>
+
+        <div class="text-center mb-3 text03">
+          STAND A CHANCE TO WIN HUGE JACKPOTS!
+        </div>
+        <div class="text-center text04">
+          The bonus will be instantly credited into your account.
+        </div>
+        <div class="text-center text05">Grab this chance and play now!</div>
+        <div class="text-center mt-3 phone-bg">
+          <div class="phone-screen" style="overflow: hidden">
+            <video width="100%" id="gamevideo" autoplay="" loop="" muted="" playsinline="">
+              <source type="video/mp4" src="media/gool-game-video.mp4" />
+            </video>
+          </div>
+        </div>
+        <a href="#form" type="button" class="btn-claim">
+          <img width="100%" class="btn-claim-img" src="images/cta-btn-v3-en.png" />
+        </a>
+      </div>
+    </section>
+
+    <section class="position-relative btm-bg" style="display: none">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center text01">
+            <p>
+              You can even become a <span>MULTI-MILLIONAIRE</span>
+              <br class="mobile" />
+              just like them:
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center mt-3 mb-5 winners">
+            <span class="wrapper winners-1">
+              <img src="images/winner-1-my-en.png" />
+              <div class="text-center info">
+                FONG YAN TING
+                <span>RM1,200,000.00</span>
+              </div>
+            </span>
+            <span class="wrapper winners-2">
+              <img src="images/winner-2-my-en.png" />
+              <div class="text-center info">
+                TAN WEI JUN
+                <span>RM1,350,000.00</span>
+              </div>
+            </span>
+            <span class="wrapper winners-3">
+              <img src="images/winner-3-my-en.png" />
+              <div class="text-center info">
+                LIM MEI LING
+                <span>RM1,300,000.00</span>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="row footer">
+          <div class="col-12 text-center mt-1 text02" style="font-weight: 600">
+            <div class="text01">
+              © <span id="current-year"></span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <button type="button" id="scrollTop">
+    <i class="fa fa-chevron-up"></i>
+  </button>
+
+  <script src="https://offer.aurmedia.com/api/offer/master-pixels"></script>
+  <script src="https://offer.aurmedia.com/api/offer/ws/submit"></script>
+
+</body>
+
+</html>
